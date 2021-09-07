@@ -13,9 +13,9 @@ from InlineBot import (
 if CUSTOM_START_MESSAGE:
     START_MESSAGE = CUSTOM_START_MESSAGE
 else:
-    START_MESSAGE = """<b>Hello {mention},
+    START_MESSAGE = """<b>Hi {mention},
 
-I am an Inline Saver Bot, you can save inline filters and It can be use in any of your chats easily, Click help for more details</b> 
+Ich bin ein Inline Saver Bot, Du kannst Inline-Filter speichern und es kann leicht in jedem Deiner Chats verwendet werden. Klicke auf /hilfe für weitere Details</b> 
 """
 
 HELP_MESSAGE = f"""<b><u>Main Available Commands</u></b>
@@ -47,52 +47,51 @@ HELP_MESSAGE = f"""<b><u>Main Available Commands</u></b>
     <i>Import filters from Backup file</i>
 """
 
-ABOUT_MESSAGE = f"""<b><u>ABOUT ME</u></b>
+ABOUT_MESSAGE = f"""<b><u>ÜBER MICH</u></b>
 
-<b>○ Maintained by : <a href='tg://user?id={OWNER_ID}'>This Person</a>
-○ Channel : <a href='https://t.me/CodeXBotz'>Code 𝕏 Botz</a>
-○ Support : <a href='https://t.me/CodeXBotzSupport'>Code 𝕏 Botz Support</a>
-○ Source Code : <a href='https://github.com/CodeXBotz/Inline-Filter-Bot'>Click here</a>
-○ Language : <a href='https://www.python.org/'>Python 3</a>
-○ Library : <a href='https://github.com/pyrogram/pyrogram'>Pyrogram Asyncio {__version__}</a></b>
+<b>○ Verwaltet von : @TLGRM_Support
+○ Support : <a href='https://t.me/iSupportiBot'>iSupportiBot</a>
+○ Source Code: <a href='https://github.com/CodeXBotz/Inline-Filter-Bot'>Hier</a>
+○ Sprache: <a href='https://www.python.org/'>Python 3</a>
+○ Bibiliothek: <a href='https://github.com/pyrogram/pyrogram'>Pyrogram Asyncio {__version__}</a></b>
 """
 
-MARKDOWN_HELP = """<b><u>Markdown Formatting</u></b>
+MARKDOWN_HELP = """<b><u>Markdown Formatierung</u></b>
 
-○ <b>Bold Words</b> :
-    format: <code>*Bold Text*</code>
-    show as: <b>Bold Text</b>
+○ <b>Fett</b> :
+    Format: <code>*Fetter Text*</code>
+    Aussehen: <b>Fetter Text</b>
     
-○ <b>Italic Text</b>
-    format: <code>_Italic Text_</code>
-    show as: <i>Italic Text</i>
+○ <b>Kursiv</b>
+    Format: <code>_Kursiver Text_</code>
+    Aussehen: <i>Kursiver Text</i>
     
-○ <b>Code Words</b>
-    format: <code>`Code Text`</code>
-    show as: <code>Code Text</code>
+○ <b>Mono</b>
+    Format: <code>`Code Text`</code>
+    Aussehen: <code>Code Text</code>
     
-○ <b>Under Line</b>
-    format: <code>__UnderLine Text__</code>
-    show as: <u>UnderLine Text</u>
+○ <b>Unterstrichen</b>
+    Format: <code>__Unterstrichener Text__</code>
+    Aussehen: <u>__Unterstrichener Text</u>
     
-○ <b>StrikeThrough</b>
-    format: <code>~StrikeThrough Text~</code>
-    show as: <s>StrikeThrough Text</s>
+○ <b>Durchgestrichen</b>
+    Format: <code>~Duchgestrichener Text~</code>
+    Aussehen: <s>Duchgestrichener Text</s>
     
-○ <b>Hyper Link</b>
-    format: <code>[Text](https://t.me/CodeXBotz)</code>
-    show as: <a href='https://t.me/CodeXBotz'>Text</a>
+○ <b>Link</b>
+    Format: <code>[Text](https://t.me/iSupFilterBot)</code>
+    Aussehen: <a href='https://t.me/iSupFilterBot'>Text</a>
     
 ○ <b>Buttons</b>
-    <u>Url Button</u>:
-    <code>[Button Text](buttonurl:https://t.me/CoddeXBotz)</code>
-    <u>Alert Button</u>:
-    <code>[Button Text](buttonalert:Alert Text)</code>
-    <u>In Sameline</u>:
-    <code>[Button Text](buttonurl:https://t.me/CodeXBotz:same)</code></i>
+    <u>URL Button</u>:
+    <code>[Button Text](buttonurl:https://t.me/iSupFilterBot)</code>
+    
+    <u>Popup</u>:
+    <code>[Button Text](buttonalert:Popup Text)</code>
+    
+    <u>Gleiche Zeile</u>:
+    <code>[Button Text](buttonurl:https://t.me/iSupFilterBot:same)</code></i>
 
-○ <b>Notes:</b>
-    <i>Keep every Buttons in Seperate line when formating</i>
-    <i>Your alert message text must be less than 200 characters, otherwise bot will ignore that button</i>
-
-○ <b>Tip:</b> <i>You can add buttons for sticker and video note in /add command</i>"""
+○ <b>Merke:</b>
+    <i>Behalte alle Schaltflächen bei der Formatierung in einer separaten Zeile.</i>
+    <i>Dein Text muss weniger als 200 Zeichen lang sein, sonst ignoriert der Bot diese Schaltfläche</i>"""
