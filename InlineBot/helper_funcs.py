@@ -137,10 +137,10 @@ def remove_escapes(text: str) -> str:
     return res
 
 async def upload_photo(message):
-    msg = await message.reply_text("<code>Please wait..</code>")
+    msg = await message.reply_text("<code>Bitte warte..</code>")
     _T_LIMIT = 5242880
     if not (bool(message.photo) and bool(message.photo.file_size <= _T_LIMIT)):
-        await msg.edit("<i>Sorry this Photo is not supported..</i>")
+        await msg.edit("<i>Sorry, das Foto geht nicht..</i>")
         return False
     dl_loc = await message.download()
     try:
