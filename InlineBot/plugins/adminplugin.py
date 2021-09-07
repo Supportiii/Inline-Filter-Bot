@@ -24,7 +24,7 @@ from pyrogram.errors import (
 
 @CodeXBotz.on_message(filters.private & filters.command('stats') & filters.admins)
 async def getstatus(client: CodeXBotz, message: Message):
-    sts_msg = await message.reply('Getting Details..')
+    sts_msg = await message.reply('<code>Suche Infos..</code>')
     stats = await get_status()
     await sts_msg.edit(stats)
     
@@ -36,13 +36,13 @@ async def broadcast(client: CodeXBotz, message: Message):
         reply_to_message_id = broadcast_msg.message_id
     )
     await broadcast_msg.reply(
-        text = 'Are you sure you want Broadcast this..',
+        text = 'Möchtest du das wirklich Broadcasten?',
         quote = True,
         reply_markup = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton(text = 'Yes', callback_data = 'bdcast_cnfrm'),
-                    InlineKeyboardButton(text = 'No', callback_data = 'close')
+                    InlineKeyboardButton(text = 'Ja', callback_data = 'bdcast_cnfrm'),
+                    InlineKeyboardButton(text = 'Nein', callback_data = 'close')
                 ]
             ]
         )
@@ -53,7 +53,7 @@ async def broadcast(client: CodeXBotz, message: Message):
 async def broadcast_confrm(client: CodeXBotz, query):
     if not query.message.reply_to_message:
         await query.answer(
-            text = 'Message not found',
+            text = 'Nachricht nicht gefunden',
             show_alert = True
         )
         await query.message.delete()
@@ -85,12 +85,12 @@ async def broadcast_confrm(client: CodeXBotz, query):
             deleted += 1
             await del_from_userbase(user_id)
             
-    text = f"""<b>Broadcast Completed</b>
+    text = f"""<b>Broadcast gesendet</b>
     
-Total users: {str(len(user_ids))}
-Blocked users: {str(blocked)}
-Deleted accounts: {str(deleted)} (<i>Deleted from Database</i>)
-Failed : {str(peerid)}"""
+Nutzer gesamt: {str(len(user_ids))}
+Nutzer blockiert: {str(blocked)}
+Gelöschte Accounts: {str(deleted)} (<i>Aus der Datenbank gelöscht</i>)
+Fehlgeschlagen: {str(peerid)}"""
 
     await query.message.reply(text)
     await query.message.delete()
