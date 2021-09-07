@@ -131,18 +131,18 @@ async def get_status():
     user_collection = database['users']
     no_users = user_collection.find().count()
     
-    stats_text = f"""<b>Statistics</b>
+    stats_text = f"""<b><u>Statistiken</u></b>
     
-Total users: {no_users}
-Total filters: {filters_no}
-Text filters: {text}
-Photo filters: {photo}
-Video filters: {video}
-Audio filters: {audio}
-Document filters: {document}
-Animation filters: {animation}
-Sticker filters: {sticker}
-Voice filters: {voice}
-Video Note filters: {videonote}"""
+Nutzer: {no_users}
+Filter gesamt: {filters_no}
+Texte: {text}
+Fotos: {photo}
+Videos: {video}
+Audios: {audio}
+Dokumente: {document}
+Animiertes: {animation}
+Sticker: {sticker}
+Sprachnachrichten: {voice}
+Videonachrichten: {videonote}"""
 
     return stats_text
