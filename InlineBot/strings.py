@@ -18,33 +18,33 @@ else:
 Ich bin ein Inline Saver Bot, Du kannst Inline-Filter speichern und es kann leicht in jedem Deiner Chats verwendet werden. Klicke auf /help für weitere Details</b> 
 """
 
-HELP_MESSAGE = f"""<b><u>Main Available Commands</u></b>
+HELP_MESSAGE = f"""<b><u>Hauptbefehle</u></b>
 
-○ <b>/{FILTER_COMMAND.lower()}</b> <i>[keyword] [message or reply to message]</i>
-    <i>Add an Inline filter, you can use MarkDown for formatting</i>
+○ <b>/{FILTER_COMMAND.lower()}</b> <i>[Schlüsselwort] [Nachricht oder reply]</i>
+    <i>Erstellt einen Filter. Du kannst Markdown nutzen.</i>
     
-○ <b>/{DELETE_COMMAND.lower()}</b> <i>[keyword]</i>
-    <i>Delete existing Filter</i>
+○ <b>/{DELETE_COMMAND.lower()}</b> <i>[Schlüsselwort]</i>
+    <i>Löscht einen Filter</i>
     
 ○ <b>/filters</b>
-    <i>To see the filters</i>
+    <i>Zeigt alle Filter</i>
     
 ○ <b>/export</b>
-    <i>Export a Backup file of filters, this can be import by others</i>
+    <i>Exportiert alle Daten, um sie woanders nutzen zu können.</i>
     
 ○ <b>/stats</b>
-    <i>See the Bot's Statistics</i>
+    <i>Zeigt Bot-Statistiken</i>
     
-○ <b>/broadcast</b> <i>[reply to any message]</i>
-    <i>Broadcast any Messages to Bot users</i>
+○ <b>/broadcast</b> <i>[Nachricht oder reply]</i>
+    <i>Broadcast-Nachricht an alle Nutzer</i>
     
-<b><u>Owner only Commands</u></b>
+<b><u>Inhaber-Befehle</u></b>
 
 ○ <b>/delall</b>
-    <i>Delete all of the filters</i>
+    <i>Löscht alle Filter</i>
     
-○ <b>/import</b> <i>[reply to an exported file]</i>
-    <i>Import filters from Backup file</i>
+○ <b>/import</b> <i>[Antowort auf Backup-Datei]</i>
+    <i>Importiert Filter von einer Datei</i>
 """
 
 ABOUT_MESSAGE = f"""<b><u>ÜBER MICH</u></b>
