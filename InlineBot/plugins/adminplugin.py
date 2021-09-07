@@ -67,7 +67,7 @@ async def broadcast_confrm(client: CodeXBotz, query):
     blocked = 0
     peerid = 0
     
-    await query.message.edit(text = 'Broadcasting message, Please wait', reply_markup = None)
+    await query.message.edit(text = 'Broadcaste.. Bitte warten!', reply_markup = None)
     
     for user_id in user_ids:
         try:
