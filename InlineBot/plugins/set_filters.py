@@ -35,7 +35,7 @@ async def new_filter(client: CodeXBotz, message: Message):
     args = message.text.html.split(None, 1)
     
     if len(args) < 2:
-        await message.reply_text("Use Correct format 😐", quote=True)
+        await message.reply_text("Nimm ein korrektes Format! 😐", quote=True)
         return
     
     extracted = split_quotes(args[1])
@@ -43,14 +43,14 @@ async def new_filter(client: CodeXBotz, message: Message):
     msg_type = 'Text'
    
     if not message.reply_to_message and len(extracted) < 2:
-        await message.reply_text("Add some content to save your filter!", quote=True)
+        await message.reply_text("Was soll ich denn sichern?!", quote=True)
         return
 
     if (len(extracted) >= 2) and not message.reply_to_message:
         reply_text, btn, alert = generate_button(extracted[1], strid)
         fileid = None
         if not reply_text:
-            await message.reply_text("You cannot have buttons alone, give some text to go with it!", quote=True)
+            await message.reply_text("Buttons ohne Text geht nicht, bitte gib noch einen Text an!", quote=True)
             return
 
     elif message.reply_to_message and message.reply_to_message.reply_markup:
@@ -96,7 +96,7 @@ async def new_filter(client: CodeXBotz, message: Message):
                 msg_type = 'Text'
                 fileid = None
             else:
-                await message.reply('Not Supported..!')
+                await message.reply('Nicht unterstützt..!')
                 return
             alert = None
         except:
@@ -217,7 +217,7 @@ async def new_filter(client: CodeXBotz, message: Message):
             )
     except Exception as a:
         try:
-            await message.reply(text = f"<b>❌ Error</b>\n\n{str(a)}\n\n<i>Join @CodeXBotzSupport for Support</i>")
+            await message.reply(text = f"<b>❌ Fehler</b>\n\n{str(a)}\n\n<i>Frage @iSupportiBot für Hilfe!</i>")
         except:
             pass
         return
@@ -226,12 +226,12 @@ async def new_filter(client: CodeXBotz, message: Message):
     reply_markup = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text = 'Share filter', switch_inline_query = text),
-                InlineKeyboardButton(text = 'Try Here', switch_inline_query_current_chat = text)
+                InlineKeyboardButton(text = 'Filter teilen', switch_inline_query = text),
+                InlineKeyboardButton(text = 'Probiere es hier', switch_inline_query_current_chat = text)
             ]
         ]
     )
-    await message.reply_text(f"<code>{text}</code> Added", quote = True, reply_markup = reply_markup)
+    await message.reply_text(f"<code>{text}</code> Hinzugefügt", quote = True, reply_markup = reply_markup)
 
 @CodeXBotz.on_message(filters.command(DELETE_COMMAND) & filters.admins)
 async def del_filter(client: CodeXBotz, message: Message):
@@ -239,9 +239,9 @@ async def del_filter(client: CodeXBotz, message: Message):
         cmd, text = message.text.split(" ", 1)
     except:
         await message.reply_text(
-            "<i>Mention the filtername which you wanna delete!</i>\n\n"
+            "<i>Gib den FilterName an, den ich löschen soll!</i>\n\n"
             f"<code>/{DELETE_COMMAND.lower()} filtername</code>\n\n"
-            "Use /filters to view all available filters",
+            "Nutze /filters um alle Filter zu sehen!",
             quote=True
         )
         return
@@ -254,7 +254,7 @@ async def get_all(client: CodeXBotz, message: Message):
     texts = await get_all_filters()
     count = await count_filters()
     if count:
-        filterlist = f"<b>Bot have total {count} filters</b>\n\n"
+        filterlist = f"<b>Der Bot hat aktuell {count} Filter</b>\n\n"
 
         for text in texts:
             keywords = f" ○  <code>{text}</code>\n"
@@ -262,7 +262,7 @@ async def get_all(client: CodeXBotz, message: Message):
 
         if len(filterlist) > 4096:
             with io.BytesIO(str.encode(filterlist.replace("<code>", "").replace("</code>","").replace('<b>', '').replace('</b>', ''))) as keyword_file:
-                sts = await message.reply('<i>Please wait..</i>')
+                sts = await message.reply('<i>Bitte warte..</i>')
                 keyword_file.name = "filters.txt"
                 await message.reply_document(
                     document=keyword_file
@@ -270,7 +270,7 @@ async def get_all(client: CodeXBotz, message: Message):
                 await sts.delete()
             return
     else:
-        filterlist = f"<b>Bot have no filters.!</b>"
+        filterlist = f"<b>Der Bot hat keine Filter!</b>"
 
     await message.reply_text(
         text=filterlist,
@@ -282,13 +282,13 @@ async def delallconfirm(client, message):
     reply_markup = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('Yes', callback_data = 'delall'),
-                InlineKeyboardButton('No', callback_data = 'delallclose')
+                InlineKeyboardButton('Ja', callback_data = 'delall'),
+                InlineKeyboardButton('Nein', callback_data = 'delallclose')
             ]
         ]
     )
     await message.reply_text(
-        f"This will delete all of your filters.\nAre you sure you want do this.?",
+        f"Möchtest du wirklich alle deine Filter löschen?",
         reply_markup = reply_markup,
         quote=True
     )
@@ -300,7 +300,7 @@ async def delall(client: CodeXBotz, query: CallbackQuery):
 @CodeXBotz.on_callback_query(filters.regex("^delallclose$") & filters.owner)
 async def delcancel(client: CodeXBotz, query: CallbackQuery):
     await query.edit_message_text(
-        text = 'Process Cancelled',
+        text = 'Abgebrochen',
         reply_markup = None
     )
     return
