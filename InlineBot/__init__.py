@@ -69,12 +69,12 @@ class CodeXBotz(Client):
         await super().start()
         bot_details = await self.get_me()
         self.LOGGER(__name__).info(f"@{bot_details.username}  started!")
-        self.LOGGER(__name__).info("Created by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nhttps://t.me/CodeXBotz")
+        self.LOGGER(__name__).info("Created by Supportiii\nhttps://t.me/TLGRM_Support")
         self.bot_details = bot_details
 
     async def stop(self, *args):
         await super().stop()
-        self.LOGGER(__name__).info("Bot stopped. Bye.")
+        self.LOGGER(__name__).info("Bot aus. Bye.")
         
 #---------- ---------- ---------- ----------
 
