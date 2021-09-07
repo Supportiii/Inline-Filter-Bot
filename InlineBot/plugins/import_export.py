@@ -20,10 +20,10 @@ from InlineBot.helper_funcs import make_dict
 
 @CodeXBotz.on_message(filters.private & filters.command('export') & filters.admins)
 async def export_data(client: CodeXBotz, message: Message):
-    sts_msg = await message.reply('<i>Please Wait..!</i>')
+    sts_msg = await message.reply('<i>Bitte warte..!</i>')
     
     if await count_filters() == 0:
-        await sts_msg.edit('You have no filters to Export')
+        await sts_msg.edit('Du hast keine Filter zum exportieren...')
         return
     data = await get_data()
     with io.BytesIO(str.encode(data)) as keyword_file:
@@ -40,7 +40,7 @@ async def import_datas(client: CodeXBotz, message: Message):
         return
     elif not replied.document.file_name.endswith('.txt'):
         return
-    sts_msg = await message.reply('<i>Please Wait..!</i>')
+    sts_msg = await message.reply('<i>Bitte warte..!</i>')
     dl_loc = await replied.download()
     with open(dl_loc, 'r') as f:
         data_text = f.read()
@@ -54,10 +54,10 @@ async def import_datas(client: CodeXBotz, message: Message):
     try:
         data_list = make_dict(eval(data_text), exst_keywords)
     except Exception as e:
-        await sts_msg.edit('Invalid File.!')
+        await sts_msg.edit('Ungültige Datei!')
         return
     if len(data_list) == 0:
-        await sts_msg.edit("Can't import any filters.!")
+        await sts_msg.edit("Konnte keine Filter importieren!")
         return
     await import_data(data_list)
-    await sts_msg.edit(f'Imported {len(data_list)} filters')
+    await sts_msg.edit(f'Imported {len(data_list)} filters!')
