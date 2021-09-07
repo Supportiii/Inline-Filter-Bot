@@ -15,7 +15,7 @@ if CUSTOM_START_MESSAGE:
 else:
     START_MESSAGE = """<b>Hi {mention},
 
-Ich bin ein Inline Saver Bot, Du kannst Inline-Filter speichern und es kann leicht in jedem Deiner Chats verwendet werden. Klicke auf /hilfe für weitere Details</b> 
+Ich bin ein Inline Saver Bot, Du kannst Inline-Filter speichern und es kann leicht in jedem Deiner Chats verwendet werden. Klicke auf /help für weitere Details</b> 
 """
 
 HELP_MESSAGE = f"""<b><u>Main Available Commands</u></b>
