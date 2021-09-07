@@ -32,11 +32,11 @@ async def delete_filter(message, text):
     if found:
         filter_collection.delete_one(query)
         await message.reply_text(
-            f"<code>{text}</code>  deleted.",
+            f"<code>{text}</code> gelöscht.",
             quote=True
         )
     else:
-        await message.reply_text("Couldn't find that filter!", quote=True)
+        await message.reply_text("Ich konnte keinen Filter finden!", quote=True)
 
 async def get_all_filters():
     texts = []
@@ -56,14 +56,14 @@ async def count_filters():
 async def del_all(message):
     
     if not await count_filters():
-        await message.edit_text("Nothing to Delete.!")
+        await message.edit_text("Nichts zu löschen!")
         return
 
     try:
         filter_collection.remove()
-        await message.edit_text("All filters deleted.!")
+        await message.edit_text("Alle Filter gelöscht!")
     except:
-        await message.edit_text(f"Couldn't remove all of your filters")
+        await message.edit_text(f"Ich konnte die Filter nicht löschen!")
         return
 
 async def get_filters(text):
